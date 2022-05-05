@@ -1,12 +1,12 @@
 <template>
   <section class="main_grid">
     <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
         <div
-          class="col card bg-dark"
+          class="col card bg-dark p-3 m-3"
           v-for="(card, index) in cards"
           :key="index"
-          style="width: 15rem"
+          style="width: 12rem"
         >
           <img class="card-img-top img-fluid" :src="card.poster" :alt="card.title" />
           <div class="card-body text-center d-flex flex-column">
