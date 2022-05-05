@@ -1,30 +1,21 @@
 <template>
   <div id="app">
-    <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img
-              src="/docs/5.1/assets/brand/bootstrap-logo.svg"
-              alt=""
-              width="30"
-              height="24"
-            />
-          </a>
-        </div>
-      </nav>
-    </header>
+   <SiteHeader />
   </div>
 </template>
 
 <script>
-import axios from "axios";
+/* import axios from "axios"; */
+import SiteHeader from '@/components/HeaderComponent.vue'
 
 export default {
   name: "App",
-  components: {},
+  components: {
+    SiteHeader,
+  },
 };
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/style.scss";
 </style>
