@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-   <SiteHeader />
+    <SiteHeader />
+    <SiteMain />
   </div>
 </template>
 
 <script>
 /* import axios from "axios"; */
-import SiteHeader from '@/components/HeaderComponent.vue'
-
+import SiteHeader from "@/components/HeaderComponent.vue";
+import SiteMain from "@/components/MainComponent.vue";
 export default {
   name: "App",
   components: {
     SiteHeader,
+    SiteMain,
   },
 };
 </script>
