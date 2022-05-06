@@ -1,7 +1,6 @@
 <template>
   <section class="main_grid" v-if="!loading">
-    <select class="form-select" aria-label="Default select example" >
-      <option selected>Open this select menu</option>
+    <select class="form-select" aria-label="Default select example">
       <option>Pop</option>
       <option>Jazz</option>
       <option>Metal</option>
@@ -35,14 +34,17 @@
 
 <script>
 import axios from "axios";
+import state from '@/state.js'
 export default {
   name: "SiteMain",
+  
   data() {
     return {
       API_URL: "https://flynn.boolean.careers/exercises/api/array/music",
       cards: null,
       loading: true,
       error: null,
+      
     };
   },
   methods: {
@@ -62,16 +64,26 @@ export default {
           console.log(error);
           this.error = `Sorry There is a problem! ${error.message}`;
         });
-    },
-
-    filterGenr(){
-      console.log(this.$options); 
-    }
+    }    
   },
-
+ 
   mounted() {
     this.callApi();
   },
+
+  computed: {
+   
+   filtered(){
+      let searchText = document.querySelector("form-select").value.toLowerCase()
+      if(state.searchText){
+        return this.cards.filter(card => {
+          return card.genre.toLowerCase() == searchText;
+        })
+      } else {
+        return this.cards
+      }
+    }
+ }
 };
 </script>
 
