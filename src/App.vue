@@ -10,6 +10,7 @@
 /* import axios from "axios"; */
 import SiteHeader from "@/components/HeaderComponent.vue";
 import SiteMain from "@/components/MainComponent.vue";
+
 export default {
   name: "App",
   components: {

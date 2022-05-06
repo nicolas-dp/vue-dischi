@@ -5,18 +5,10 @@
         <a class="navbar-brand" href="#">
           <img src="@/assets/spotify.png" alt="" height="50" width="50" />
         </a>
+
+        <SearchBox v-model="searchText" @search="searchText"/>
         
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          
         </div>
       
     </nav>
@@ -24,8 +16,21 @@
 </template>
 
 <script>
+/* importo il file state in globale */
+/* import state from "@/state.js"; */
 export default {
-  name: "SiteHeader",
+  name: "SearchBox",
+    data() {
+      return {
+        searchText : ''
+      }
+    },
+
+    methods: {
+      search(){
+        console.log('Searching....');
+      } 
+    }
 };
 </script>
 

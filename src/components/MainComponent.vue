@@ -1,16 +1,18 @@
 <template>
   <section class="main_grid" v-if="!loading">
-    <select class="form-select" aria-label="Default select example">
-      <option>Pop</option>
-      <option>Jazz</option>
-      <option>Metal</option>
-      <option>Rock</option>
-    </select>
-
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 p-5">
-        <div class="col card bg_color_dark_side p-3 m-3" v-for="(card, index) in cards" :key="index" style="width: 12rem">
-          <img class="card-img-top img-fluid" :src="card.poster" :alt="card.title"/>
+        <div
+          class="col card bg_color_dark_side p-3 m-3"
+          v-for="(card, index) in cards"
+          :key="index"
+          style="width: 12rem"
+        >
+          <img
+            class="card-img-top img-fluid"
+            :src="card.poster"
+            :alt="card.title"
+          />
           <div class="card-body text-center d-flex flex-column">
             <h5 class="card-title text-white">{{ card.title }}</h5>
             <small class="card-text text-secondary">
@@ -28,25 +30,29 @@
     class="d-flex min-vh-100 align-items-center justify-content-center"
     v-else
   >
-    <img height="70" src="http://www.itismajo.it/Immagini/Icon/caricamento.gif" alt="">
+    <img
+      height="70"
+      src="http://www.itismajo.it/Immagini/Icon/caricamento.gif"
+      alt=""
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import state from '@/state.js'
+
 export default {
   name: "SiteMain",
-  
+ 
   data() {
     return {
       API_URL: "https://flynn.boolean.careers/exercises/api/array/music",
       cards: null,
       loading: true,
       error: null,
-      
     };
   },
+
   methods: {
     callApi() {
       axios
@@ -64,26 +70,12 @@ export default {
           console.log(error);
           this.error = `Sorry There is a problem! ${error.message}`;
         });
-    }    
-  },
- 
-  mounted() {
-    this.callApi();
-  },
+    },
 
-  computed: {
-   
-   filtered(){
-      let searchText = document.querySelector("form-select").value.toLowerCase()
-      if(state.searchText){
-        return this.cards.filter(card => {
-          return card.genre.toLowerCase() == searchText;
-        })
-      } else {
-        return this.cards
-      }
-    }
- }
+    mounted() {
+      this.callApi();
+    },
+  },
 };
 </script>
 
